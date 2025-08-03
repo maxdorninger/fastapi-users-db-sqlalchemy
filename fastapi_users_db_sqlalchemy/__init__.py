@@ -69,10 +69,10 @@ class SQLAlchemyBaseOAuthAccountTable(Generic[ID]):
         oauth_name: Mapped[str] = mapped_column(
             String(length=100), index=True, nullable=False
         )
-        access_token: Mapped[str] = mapped_column(String(length=1024), nullable=False)
+        access_token: Mapped[str] = mapped_column(String(length=4096), nullable=False)
         expires_at: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
         refresh_token: Mapped[Optional[str]] = mapped_column(
-            String(length=1024), nullable=True
+            String(length=4096), nullable=True
         )
         account_id: Mapped[str] = mapped_column(
             String(length=320), index=True, nullable=False
